@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="notranslate" translate="no">
+
+<head>
+<meta charset="utf-8"/>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=UTF-8"> 
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="theme-color" content="#000000" />
+<meta name="google" content="notranslate" />
+<link type="text/css" href="style.css" id="estiloCSS" rel="stylesheet" />
+
+</head>
+
+
+
+<body style="font-family: 'Arial'; font-size:12px; width:100%; height:100%; overflow:visible; padding:0px; margin:0px; background-color:black;">
+
+
+	<div id="mainMenu" style="position:absolute; top:0px; width:100%; height:auto; overflow:visible;  z-index:100;">
+		
+		<div style="clear:both; height:120px;"></div>
+		
+		<div id="Gametitle" style="position:relative; line-height:60px; width:100%; font-family:arial; font-weight:900; opacity:.5;">
+			<div class="glitch" data-text="Ghosts'n" style="color:#ab3232;">Ghosts'n</div>
+			<div class="glitch" data-text="Vamps'n" style="color:#8e4fab;">Vamps'n</div>
+			<div class="glitch" data-text="Skulls" style="color:#b0b0b0;">Skulls</div>
+		</div>
+		
+		<div style="clear:both; height:110px;"></div>
+		
+		
+		
+		<div id="botonPlay" style="text-align:center; width:100%;">
+			<div class="blink_me" onclick="play();" style="display:inline-block; text-align:center; padding:6px 20px 6px 20px; font-size:20px; color:#d3fc6f; font-weight:500; box-shadow: 0px 0px 10px 5px #86a145; border-radius:10px; border:3px solid #d3fc6f; background-color:rgba(0,0,0,0.5);">
+				Start game
+			</div>
+		</div>
+		
+	</div>
+
+
+
+	<div id="mainDIV" style="position:relative; margin:0 auto; width:100%; height:100%; overflow:hidden; background-color:black;">
+
+		<div id="gameStartMSG" style="position:absolute; width:100%; pointer-events:none; transition: 5s opacity; display:none; top:150px; left:0px; font-size:18px; z-index:100;">
+			<div style="pointer-events:none; text-align:center; margin:0 auto; width:80%; max-width:61.50vh; font-weight:500; color:#c9af00; ">
+				Good luck warriors!
+			</div>
+		</div>
+		
+		
+		
+		<div style="position:relative; margin:0 auto; width:61.50vh; height:calc(100% - 90px); max-height:140vw; max-width:100vw; overflow:visible;">	
+			<div id="gameMSG" style="position:absolute; top:150px; left:5%; width:84%; text-align:center; display:none; color:orange; border-radius:20px; font-size:12px; padding:3%; background-color:rgba(0,0,0,0.5); z-index:1000;">
+			</div>
+			
+			<div id="config" style="position:absolute; display:none; top:150px; left:5%; width:84%; text-align:center; color:silver; border-radius:20px; font-size:12px; padding:3%; background-color:rgba(25,25,25,0.9); z-index:1000;">	
+				<br><br>
+				Set game volume
+				<br>
+				<input id="vol" type="range" min="0" max="1" step="0.01" value="0.5" oninput="zzfxV=this.value;" onchange="zzfxV=this.value;">
+				<br><br><br><br>
+				<div onclick="document.getElementById('config').style.display='none';"
+					style="display:inline-block; color:lime; padding:15px; width:50px; text-align:center; border-radius:10px; background-color:black">
+					OK
+				</div>	
+				<br><br>
+			</div>
+			
+			
+			
+			<DIV  id="canvasDIV" style="position:relative; height:100%; overflow:hidden; background-color:black;">
+				<canvas id="mycanvas">
+				</canvas>	
+			</DIV>
+			
+			<div style="position:relative; overflow:hidden; text-align:center; width:100%; height:90px; background-color:black;">
+			
+				<div id="SwapLine1" style="position:absolute; width:30%; top:-33px; height:70px; transition:2s; left:-50%; display:inline-block; border-radius:15px; border:3px solid #404040; ">
+					<div id="SwapButton1" onpointerdown="swap(1);" style="position:relative; width:58px; height:58px; top:37px; display:inline-block; border-radius:150px; border:3px solid #404040; background-color:#202520;">
+						<div style="position:absolute; top:22px; text-align:center; width:100%; font-size:16px; color:silver;">
+							SWAP
+						</div>
+					</div>
+				</div>
+				<div id="SwapLine2" style="position:absolute; width:30%; top:-33px; height:70px; transition:2s; left:150%; display:inline-block; border-radius:15px; border:3px solid #404040; ">
+					<div id="SwapButton2" onpointerdown="swap(2);" style="position:relative; width:58px; height:58px; top:37px; display:inline-block; border-radius:150px; border:3px solid #404040; background-color:#202520;;">
+						<div style="position:absolute; top:22px; text-align:center; width:100%; font-size:16px; color:silver;">
+							SWAP
+						</div>
+					</div>
+				</div>
+				
+
+				<div style="position:relative; display:none; top:-15px; clear:both; text-align:center; width:100%; height:auto; background-color:none;">			
+					<div style="position:relative; width:58px; height:58px; display:inline-block; border-radius:150px; border:3px solid #404040; background-color:#252020;;" 
+						 onpointerdown="if(VelTurbo==1) {VelTurbo=3;this.style.borderColor='#f5e878';} else {VelTurbo=1; this.style.borderColor='#404040'}">
+						<div style="position:absolute; top:22px; text-align:center; width:100%; font-size:14px; color:silver;">
+							TURBO
+						</div>
+					</div>			
+				</div>
+				
+			</div>
+
+		</div>
+		
+		
+
+	</div>
+
+
+		
+
+	<!-- ///////////////// ojo quitar lo de abajo y dejar lo de arriba //////////////////////// -->
+	<script type="text/javascript" language="javascript">  
+		var versionUpdate = (new Date()).getTime();  
+		var script = document.createElement("script");  
+		script.type = "text/javascript";  
+		script.src = "fxj.js?v=" + versionUpdate;  
+		document.body.appendChild(script);  
+	</script>  
+
+</body>
+</html>
