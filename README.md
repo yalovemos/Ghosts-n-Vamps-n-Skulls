@@ -28,8 +28,8 @@
 
 | Feature / Función | Description / Descripción | Demo |
 | :--- | :--- | :--- |
-| **Intense Combat** | Fast-paced shooting and movement. / Disparos y movimiento frenético. | ![GIF](docs/screenshots/combat.gif) |
-| **Undead Variety** | Different AI patterns for every monster. / Patrones de IA distintos por monstruo. | ![PNG](docs/screenshots/inicio.png) |
+| **Intense Combat** | Fast-paced shooting and movement. / Disparos y movimiento frenético. | ![GIF](screenshots/combat.gif) |
+| **Undead Variety** | Different AI patterns for every monster. / Patrones de IA distintos por monstruo. | ![PNG](screenshots/inicio.png) |
 | **Retro Style** | 8-bit procedural graphics and audio. / Gráficos y audio procedural de 8 bits. |
 
 ---
